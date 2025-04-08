@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <!-- Sign Up Form -->
+    <form id="sign_up_form" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button id="sign_up_button" type="submit">Sign In</button>
+    </form>
+
+    <!-- Django Messages -->
+    <div>
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+</body>
+</html>
