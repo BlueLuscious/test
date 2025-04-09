@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # My Apps
     "app",
     "authy",
+    "front",
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Authentication Model
 AUTH_USER_MODEL = "client.ClientModel"
+
+# Set redirects
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "login"

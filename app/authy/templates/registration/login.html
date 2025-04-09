@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <!-- Sign Up Form -->
+    <form id="log_in_form" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_username">Username:</label>
+            <input type="email" id="id_username" name="username" required />
+        </div>
+        <div>
+            <label for="id_password">Password:</label>
+            <input type="password" id="id_password" name="password" required />
+        </div>
+        <button id="log_in_button" type="submit">Log In</button>
+    </form>
+
+    <!-- Django Messages -->
+    <div>
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+</body>
+</html>
