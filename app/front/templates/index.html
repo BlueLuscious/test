@@ -5,9 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
 </head>
-<body>
-
-    Hola
+<body style="margin: 0; padding: .5rem;">
+    {% if request.user.cart %}
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center;
+        column-gap: 2rem; width: 100%; padding: .5rem;"
+    >
+        {% for item in request.user.cart.items.all %}
+        <div style="display: flex; flex-direction: column; justify-content: space-between; 
+            align-items: center; width: 100%; height: 5rem; padding: .5rem;
+            border: black solid 0.25rem; border-radius: .5rem;"
+        >
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>Item {{ item.id }}</div>
+                <div>x{{ item.quantity }}</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>${{ item.price }}</div>
+                <div>Subtotal: {{ item.total_price }}</div>
+            </div>
+            <div>Stock: {{ item.stock }}</div>
+        </div>
+    {% endfor %}
+    </div>
+    <div>
+        Total Amount: {{ request.user.cart.total_amount }} 
+    </div>
+    {% endif %}
 
     <!-- Django Messages -->
     <div>
